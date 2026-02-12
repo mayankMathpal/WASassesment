@@ -56,6 +56,14 @@
         grid-template-columns: 2fr 1.5fr 1.5fr;
         /* Label | Voyager | Voyager Plus */
       }
+      .inline-images img {
+        display: inline-block;
+        padding-left: 4px;
+        cursor: pointer;
+      }
+      .benefits-table-container>div {
+        align-items: center;
+      }
     </style>
   </head>
 
@@ -124,115 +132,163 @@
 
     <main class="flex-grow pb-12">
       <div class="max-w-7xl mx-auto px-4 lg:px-8 pt-8">
+        <div class="hidden max-md:flex items-center justify-between pb-4">
+            <span class="text-brand-navy font-bold">Trip Details</span>
+             <button
+              class="text-blue-500 border border-blue-400 px-6 py-1.5 rounded text-sm hover:bg-blue-50 transition self-start lg:self-center">
+              Edit
+            </button>
+        </div>
         <section class="bg-white mb-10 max-w-7xl mx-auto">
           <div
             class="flex grow flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-gray-100 pb-8 lg:border-none lg:pb-0">
             <div class="flex flex-col sm:flex-row gap-y-4 gap-x-12 grow">
-              <div class="flex grow">
+              <div class="flex grow max-sm:flex-col">
                 <span class="text-sm font-bold text-brand-navy mb-1"
                   >Destination(s):</span
                 >
-                <span class="text-sm text-gray-600 pl-2">Australia</span>
+                <span class="text-sm text-gray-600 sm:pl-2 ">Australia</span>
               </div>
-              <div class="flex grow sm:border-l sm:border-gray-200 sm:pl-12">
+              <div class="flex grow sm:border-l sm:border-gray-200  justify-center max-sm:flex-col">
                 <span class="text-sm font-bold text-brand-navy mb-1">Dates:</span>
-                <span class="text-sm text-gray-600 pl-2">04/11/2025 - 13/11/2025</span>
+                <span class="text-sm text-gray-600 sm:pl-2">04/11/2025 - 13/11/2025</span>
               </div>
-              <div class="flex grow sm:border-l sm:border-gray-200 sm:pl-12">
-                <span class="text-sm font-bold text-brand-navy mb-1 pl-2"
+              <div class="flex grow sm:border-l sm:border-gray-200 justify-center max-sm:flex-col">
+                <span class="text-sm font-bold text-brand-navy mb-1 "
                   >Traveller Ages:</span
                 >
-                <span class="text-sm text-gray-600 pl-2">23</span>
+                <span class="text-sm text-gray-600 sm:pl-2">23</span>
               </div>
             </div>
 
             <button
-              class="text-blue-500 border border-blue-400 px-6 py-1.5 rounded text-sm hover:bg-blue-50 transition self-start lg:self-center">
+              class="max-md:hidden text-blue-500 border border-blue-400 px-6 py-1.5 rounded text-sm hover:bg-blue-50 transition self-start lg:self-center">
               Edit
             </button>
           </div>
         </section>
 
         <div class="lg:hidden">
-          <div class="flex border rounded-md overflow-hidden bg-white shadow-sm mb-6">
-            <button
-              onclick="switchTab('voyager')"
-              id="tab-voyager"
-              class="flex-1 py-4 text-center border-r border-gray-100 bg-gray-50">
-              <div class="text-sm font-bold text-gray-500">VOYAGER</div>
-              <div class="text-brand-navy font-bold">$15.98</div>
-            </button>
-            <button
-              onclick="switchTab('voyager-plus')"
-              id="tab-voyager-plus"
-              class="flex-1 py-4 text-center bg-white border-b-4 border-brand-yellow">
-              <div class="text-sm font-bold text-black">VOYAGER PLUS</div>
-              <div class="text-brand-yellow font-bold">$41.34</div>
-            </button>
-          </div>
+                
+                <div class="border border-gray-200 rounded-md overflow-hidden mb-6">
+                    <div id="mob-tab-voyager" onclick="switchTabMobile('voyager')" class="flex justify-between items-center p-4 border-b border-gray-200 bg-white cursor-pointer transition-colors">
+                        <span class="font-bold text-gray-700 text-sm">VOYAGER</span>
+                        <span class="font-bold text-brand-navy text-sm">$15.98</span>
+                    </div>
+                    
+                    <div id="mob-tab-plus" onclick="switchTabMobile('plus')" class="flex justify-between items-center p-4 bg-brand-gray cursor-pointer transition-colors">
+                        <span class="font-bold text-gray-800 text-sm">VOYAGER PLUS</span>
+                        <span class="font-bold text-brand-yellow text-sm">$41.34</span>
+                    </div>
+                </div>
 
-          <article
-            id="mobile-voyager"
-            class="hidden bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-            <div class="p-6 text-center bg-gray-50 border-b border-gray-100">
-              <h3 class="text-xl font-bold text-brand-navy">VOYAGER</h3>
-              <div class="text-2xl font-bold text-brand-navy my-2">$15.98</div>
-            </div>
-            <div class="p-4 space-y-4">
-              <div class="flex justify-between border-b pb-2">
-                <span class="text-sm text-gray-600">Cancellation</span>
-                <span class="font-bold text-brand-navy">$1,000</span>
-              </div>
-              <div class="flex justify-between border-b pb-2">
-                <span class="text-sm text-gray-600">Luggage</span>
-                <span class="font-bold text-brand-navy">$500</span>
-              </div>
-              <div class="flex justify-between border-b pb-2">
-                <span class="text-sm text-gray-600">Travel Delay</span>
-                <span class="text-sm text-gray-400">not available</span>
-              </div>
-            </div>
-            <div class="p-4">
-              <button
-                class="w-full bg-[#0B2347] text-white py-3 uppercase font-bold text-sm">
-                Choose Plan
-              </button>
-            </div>
-          </article>
+                <div class="bg-white rounded-lg border border-gray-100 shadow-sm p-2 px-4">
+                    
+                    <div class="text-center pt-6 pb-4">
+                        <div class="w-16 h-16 bg-brand-yellow text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                            <div class="w-8 h-8 border-2 border-white rounded-r-lg rounded-bl-lg"></div>
+                        </div>
+                        
+                        <h3 id="mob-plan-title" class="text-lg font-medium text-black mb-2 tracking-wide">VOYAGER PLUS</h3>
+                        
+                        <div class="flex flex-col items-center">
+                            <span id="mob-price-from" class="text-gray-400 text-lg line-through font-light">From $44.94</span>
+                            <div class="flex items-baseline gap-1 mt-1">
+                                <span id="mob-price-symbol" class="text-2xl font-bold text-brand-yellow">$</span>
+                                <span id="mob-price-val" class="text-4xl font-bold text-brand-yellow">41.34</span>
+                            </div>
+                            <span class="text-gray-500 text-sm mt-1">Total Cost</span>
+                        </div>
+                        
+                        <p class="text-[11px] text-gray-400 mt-4 px-8">
+                            Policy benefits listed below, per traveller limits apply
+                        </p>
+                    </div>
 
-          <article
-            id="mobile-voyager-plus"
-            class="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-            <div class="p-6 text-center border-b border-gray-100">
-              <h3 class="text-xl font-bold text-brand-navy">VOYAGER PLUS</h3>
-              <div class="text-2xl font-bold text-brand-yellow my-2">$41.34</div>
+                    <div class="mt-2 border border-gray-200 rounded text-sm inline-images benefits-table-container">
+                        <div class="flex border-b border-gray-200 min-h-[60px] benefits-row">
+                            <div class="w-1/2 p-3 text-gray-600 items-center border-r border-gray-200">
+                                <span>Cancellation or trip interruption </span>
+                                <image src="./Button.svg" width="16" height="16"></image>                     
+                            </div>
+                            <div class="w-1/2 p-3 flex items-center justify-center bg-white">
+                                <div id="mob-content-cancellation" class="w-full">
+                                    <select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm">
+                                        <option>$4,000</option>
+                                        <option>$2,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex border-b border-gray-200 min-h-[60px]">
+                            <div class="w-1/2 p-3 text-gray-600 items-center border-r border-gray-200">
+                                <span>Luggage and personal effects </span>
+                                <image src="./Button.svg" width="16" height="16"></image>
+                            </div>
+                            <div class="w-1/2 p-3 flex items-center justify-center bg-white">
+                                <div id="mob-content-luggage" class="w-full">
+                                    <select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm">
+                                        <option>$1,000</option>
+                                        <option>$500</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex border-b border-gray-200 min-h-[60px]">
+                            <div class="w-1/2 p-3 text-gray-600 items-center border-r border-gray-200">
+                                <span>Travel Delay </span>
+                                <image src="./Button.svg" width="16" height="16"></image>
+                            </div>
+                            <div class="w-1/2 p-3 flex items-center justify-center bg-white">
+                                <span id="mob-content-delay" class="text-gray-700 font-medium">$1,000</span>
+                            </div>
+                        </div>
+
+                        <div class="flex min-h-[60px]">
+                            <div class="w-1/2 p-3 text-gray-600 items-center border-r border-gray-200">
+                                <span>Personal Liability </span>
+                                <image src="./Button.svg" width="16" height="16"></image>
+                            </div>
+                            <div class="w-1/2 p-3 flex items-center justify-center bg-white">
+                                <span id="mob-content-liability" class="text-gray-700 font-medium">$2,500,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 mb-3 text-brand-navy font-bold text-sm">Optional Cover</div>
+                    
+                    <div class="border border-gray-200 rounded text-sm mb-8 inline-images benefits-table-container">
+                         <div class="flex min-h-[60px]">
+                            <div class="w-1/2 p-3 text-gray-600 items-center border-r border-gray-200">
+                                <span>Rental Vehicle Excess </span>
+                                <image src="./Button.svg" width="16" height="16"></image>
+                            </div>
+                            <div class="w-1/2 p-3 flex items-center justify-center bg-white">
+                                <div id="mob-content-rental" class="w-full">
+                                    <select class=" text-center w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm">
+                                        <option>Not Selected</option>
+                                        <option>Selected</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-2 pb-6 flex flex-col items-center">
+                        <button id="mob-btn-action" class="w-1/2 mx-auto bg-brand-yellow hover:bg-yellow-500 text-white font-bold py-4 shadow-sm text-sm tracking-wide transition-colors">
+                            CHOOSE PLAN
+                        </button>
+                        
+                        <div class="mt-4 text-center space-y-3">
+                            <a href="#" class="block text-xs font-medium text-brand-navy underline decoration-1 underline-offset-2">View Policy Information</a>
+                            <a href="#" class="block text-xs text-blue-500">Show all benefits</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="p-4 space-y-4">
-              <div class="flex justify-between items-center border-b pb-2">
-                <span class="text-sm text-gray-600">Cancellation</span>
-                <select class="border rounded px-2 py-1 text-sm">
-                  <option>$4,000</option>
-                </select>
-              </div>
-              <div class="flex justify-between items-center border-b pb-2">
-                <span class="text-sm text-gray-600">Luggage</span>
-                <select class="border rounded px-2 py-1 text-sm">
-                  <option>$1,000</option>
-                </select>
-              </div>
-              <div class="flex justify-between border-b pb-2">
-                <span class="text-sm text-gray-600">Travel Delay</span>
-                <span class="font-bold text-gray-700">$1,000</span>
-              </div>
-            </div>
-            <div class="p-4">
-              <button
-                class="w-full bg-brand-yellow text-white py-3 rounded uppercase font-bold text-sm">
-                Choose Plan
-              </button>
-            </div>
-          </article>
-        </div>
 
         <div
           class="hidden lg:block relative border border-gray-200 rounded-lg overflow-hidden">
@@ -288,7 +344,7 @@
               <div class="p-4 text-center font-bold text-brand-navy">$1,000</div>
               <div class="p-4 text-center border-l border-gray-50">
                 <select
-                  class="custom-select w-32 mx-auto border border-gray-200 rounded px-3 py-2 text-sm text-brand-navy font-medium focus:outline-none focus:border-brand-yellow bg-white shadow-sm">
+                  class="text-center custom-select w-32 mx-auto border border-gray-200 rounded px-3 py-2 text-sm text-brand-navy font-medium focus:outline-none focus:border-brand-yellow bg-white shadow-sm">
                   <option>$4,000</option>
                   <option>$2,000</option>
                 </select>
@@ -307,7 +363,7 @@
               <div class="p-4 text-center font-bold text-brand-navy">$500</div>
               <div class="p-4 text-center border-l border-gray-50">
                 <select
-                  class="custom-select w-32 mx-auto border border-gray-200 rounded px-3 py-2 text-sm text-brand-navy font-medium focus:outline-none focus:border-brand-yellow bg-white shadow-sm">
+                  class=" text-center custom-select w-32 mx-auto border border-gray-200 rounded px-3 py-2 text-sm text-brand-navy font-medium focus:outline-none focus:border-brand-yellow bg-white shadow-sm">
                   <option>$1,000</option>
                   <option>$500</option>
                 </select>
@@ -409,7 +465,7 @@
     <footer class="bg-brand-navy text-white py-8 text-xs border-t border-blue-900">
       <div
         class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-gray-300 order-2 md:order-1">
+        <div class="text-gray-300 order-2 md:order-1 border-t border-gray-100/20 md:border-none max-sm:pt-4 max-sm:w-full max-sm:text-center">
           &copy; 2025 Logo Ipsum. All Rights Reserved.
         </div>
         <div class="flex gap-6 order-1 md:order-2">
@@ -423,55 +479,82 @@
     </footer>
 
     <script>
-      function switchTab(plan) {
-        const voyagerCard = document.getElementById("mobile-voyager");
-        const voyagerPlusCard = document.getElementById("mobile-voyager-plus");
-        const tabVoyager = document.getElementById("tab-voyager");
-        const tabVoyagerPlus = document.getElementById("tab-voyager-plus");
+        // Data for mobile toggle
+        const plans = {
+            voyager: {
+                title: "VOYAGER",
+                fromPrice: "From $17.37",
+                price: "15.98",
+                colorClass: "text-brand-navy",
+                iconBg: "bg-brand-navy",
+                btnBg: "bg-brand-navy",
+                cancellation: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>$4,000</option><option>$2,000</option></select>`,
+                luggage: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>$1,000</option><option>$500</option></select>`,
+                delay: `<span class="text-center text-gray-700 font-medium">$1,000</span>`,
+                liability: `<span class="text-center text-gray-700 font-medium">$2,500,000</span>`,
+                rental: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>Not Selected</option><option>Selected</option></select>`
+            },
+            plus: {
+                title: "VOYAGER PLUS",
+                fromPrice: "From $44.94",
+                price: "41.34",
+                colorClass: "text-brand-yellow",
+                iconBg: "bg-brand-yellow",
+                btnBg: "bg-brand-yellow",
+                cancellation: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>$4,000</option><option>$2,000</option></select>`,
+                luggage: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>$1,000</option><option>$500</option></select>`,
+                delay: `<span class="text-center text-gray-700 font-medium">$1,000</span>`,
+                liability: `<span class="text-center text-gray-700 font-medium">$2,500,000</span>`,
+                rental: `<select class="text-center custom-select w-full border border-gray-200 rounded px-2 py-2 text-sm text-gray-800 bg-white shadow-sm"><option>Not Selected</option><option>Selected</option></select>`
+            }
+        };
 
-        if (plan === "voyager") {
-          voyagerCard.classList.remove("hidden");
-          voyagerPlusCard.classList.add("hidden");
+        function switchTabMobile(planKey) {
+            const data = plans[planKey];
+            const tabVoyager = document.getElementById('mob-tab-voyager');
+            const tabPlus = document.getElementById('mob-tab-plus');
+            
+            // Visual Toggle for Tabs
+            if (planKey === 'voyager') {
+                tabVoyager.classList.add('bg-brand-gray');
+                tabVoyager.classList.remove('bg-white');
+                tabPlus.classList.add('bg-white');
+                tabPlus.classList.remove('bg-brand-gray');
+            } else {
+                tabPlus.classList.add('bg-brand-gray');
+                tabPlus.classList.remove('bg-white');
+                tabVoyager.classList.add('bg-white');
+                tabVoyager.classList.remove('bg-brand-gray');
+            }
 
-          tabVoyager.classList.remove("bg-gray-50", "text-gray-500", "border-b-0");
-          tabVoyager.classList.add("bg-white", "border-b-4", "border-brand-yellow");
-          tabVoyager.querySelector(".text-brand-navy").classList.add("text-brand-yellow");
-          tabVoyager
-            .querySelector(".text-brand-navy")
-            .classList.remove("text-brand-navy");
+            // Update Card Content
+            document.getElementById('mob-plan-title').innerText = data.title;
+            document.getElementById('mob-price-from').innerText = data.fromPrice;
+            document.getElementById('mob-price-val').innerText = data.price;
+            
+            // Update Colors
+            const symbol = document.getElementById('mob-price-symbol');
+            const val = document.getElementById('mob-price-val');
+            const btn = document.getElementById('mob-btn-action');
+            
+            // Reset colors
+            symbol.className = `text-2xl font-bold ${data.colorClass}`;
+            val.className = `text-4xl font-bold ${data.colorClass}`;
+            
+            // Update Icon Color (Parent div)
+            const iconContainer = document.querySelector('.w-16.h-16');
+            iconContainer.className = `w-16 h-16 ${data.iconBg} text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold`;
 
-          tabVoyagerPlus.classList.add("bg-gray-50", "text-gray-500");
-          tabVoyagerPlus.classList.remove(
-            "bg-white",
-            "border-b-4",
-            "border-brand-yellow",
-          );
-          tabVoyagerPlus
-            .querySelector(".text-brand-yellow")
-            .classList.add("text-brand-navy");
-          tabVoyagerPlus
-            .querySelector(".text-brand-yellow")
-            .classList.remove("text-brand-yellow");
-        } else {
-          voyagerCard.classList.add("hidden");
-          voyagerPlusCard.classList.remove("hidden");
+            // Update Button
+            btn.className = `w-1/2 ${data.btnBg} text-white font-bold py-4 rounded shadow-sm text-sm tracking-wide transition-colors hover:opacity-90`;
 
-          tabVoyagerPlus.classList.remove("bg-gray-50", "text-gray-500");
-          tabVoyagerPlus.classList.add("bg-white", "border-b-4", "border-brand-yellow");
-          tabVoyagerPlus
-            .querySelector(".text-brand-navy")
-            .classList.add("text-brand-yellow");
-          tabVoyagerPlus
-            .querySelector(".text-brand-navy")
-            .classList.remove("text-brand-navy");
-
-          tabVoyager.classList.add("bg-gray-50", "text-gray-500", "border-b-0");
-          tabVoyager.classList.remove("bg-white", "border-b-4", "border-brand-yellow");
-          const price = tabVoyager.querySelectorAll("div")[1];
-          price.classList.add("text-brand-navy");
-          price.classList.remove("text-brand-yellow");
+            // Update Table Content
+            document.getElementById('mob-content-cancellation').innerHTML = data.cancellation;
+            document.getElementById('mob-content-luggage').innerHTML = data.luggage;
+            document.getElementById('mob-content-delay').innerHTML = data.delay;
+            document.getElementById('mob-content-liability').innerHTML = data.liability;
+            document.getElementById('mob-content-rental').innerHTML = data.rental;
         }
-      }
     </script>
   </body>
 </html>
